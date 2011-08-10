@@ -33,13 +33,6 @@ class BreadcrumbsExtension extends \Twig_Extension
         );
     }
 
-    public function getFilters()
-    {
-        return array(
-            "wo_is_final_breadcrumb" => new \Twig_Filter_Method($this, "isLastBreadcrumb"),
-        );
-    }
-
     /**
      * Returns the breadcrumbs object
      * 
@@ -58,17 +51,6 @@ class BreadcrumbsExtension extends \Twig_Extension
     public function renderBreadcrumbs()
     {
         return $this->container->get("white_october_breadcrumbs.helper")->breadcrumbs();
-    }
-
-    /**
-     * Checks if this breadcrumb is the last one in the collection
-     *
-     * @param $crumb
-     * @return boolean
-     */
-    public function isLastBreadcrumb($crumb)
-    {
-        return ($this->breadcrumbs[count($this->breadcrumbs)-1] === $crumb);
     }
 
     /**
